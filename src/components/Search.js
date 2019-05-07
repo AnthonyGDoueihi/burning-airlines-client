@@ -1,6 +1,8 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import Header from './Header'
 import Navbar from 'react-bootstrap/Navbar'
+import NavbarBrand from 'react-bootstrap/NavbarBrand'
+import NavLink from 'react-bootstrap/NavLink'
 import Nav from 'react-bootstrap/Navbar'
 import Button from 'react-bootstrap/Button';
 
@@ -15,11 +17,11 @@ class Search extends Component {
 		return (
 			<div className='container'>
 			<Navbar bg="dark" variant="dark">
-		    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+		    <NavbarBrand href="#home">Navbar</NavbarBrand>
 		    <Nav className="mr-auto">
-		      <Nav.Link href="#home">Home</Nav.Link>
-		      <Nav.Link href="#features">Features</Nav.Link>
-		      <Nav.Link href="#pricing">Pricing</Nav.Link>
+		      <NavLink href="#home">Home</NavLink>
+		      <NavLink href="#features">Features</NavLink>
+		      <NavLink href="#pricing">Pricing</NavLink>
 		    </Nav>
 		  </Navbar>
         <Header />
