@@ -27,7 +27,7 @@ class Nav extends Component {
 };
 ReactDOM.render(<NavComponent />, document.querySelector('navbar'));
 
-}
 
 
-export default Airplanes;
+
+export default Nav;
