@@ -15,7 +15,7 @@ class Search extends Component {
         <Nav />
         <Header />
         <SearchForm />
-        <h3></h3>
+        <h3>Flight Search Results</h3>
         <ResultsTable />
       </div>
 		);
@@ -25,8 +25,15 @@ class Search extends Component {
 class SearchForm extends Component{
 	render(){
 		return(
-			<div>
-			</div>
+			<form>
+				<label>From</label>
+				<input type="search"/>
+				<label>To</label>
+				<input type="search"/>
+
+				<input type="submit" value="Search"/>
+				//TODO make this search Flights
+			</form>
 		)
 	}
 }
@@ -34,14 +41,8 @@ class SearchForm extends Component{
 class ResultsTable extends Component{
 	render(){
 		return(
-			<form>
-				<label>From</label>
-				<input type="text"/>
-				<label>To</label>
-				<input type="text"/>
-				<input type="submit" value="Search"/>
-				//TODO make this search Flights
-			</form>
+			<div>
+			</div>
 		)
 	}
 }
