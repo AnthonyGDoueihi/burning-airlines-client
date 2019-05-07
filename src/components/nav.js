@@ -7,7 +7,7 @@ class Nav extends Component {
 			<div>
 				<nav>
 					<ul>
-					
+
 					</ul>
 				</nav>
 			</div>
@@ -15,7 +15,7 @@ class Nav extends Component {
 	}
 };
 
-}
 
 
-export default Airplanes;
+
+export default Nav;
