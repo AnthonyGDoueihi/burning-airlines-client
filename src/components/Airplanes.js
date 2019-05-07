@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
-import Nav from './Nav'
 import Header from './Header'
 
 const SERVER_PLANE_URL = 'http://localhost:3000/airplanes.json'
@@ -28,7 +27,6 @@ class Airplanes extends Component{
   render(){
     return(
       <div className='container'>
-        <Nav />
         <Header />
         <PlaneForm onRowChange={ this.updateRows } onColumnChange={ this.updateColumns } />
         <h3></h3>
