@@ -6,9 +6,6 @@ import Button from 'react-bootstrap/Button';
 import Header from './Header'
 
 
-
-
-
 const SERVER_FLIGHT_URL = 'http://localhost:3000/flights.json'
 const SERVER_PLANE_URL = 'http://localhost:3000/airplanes.json'
 
