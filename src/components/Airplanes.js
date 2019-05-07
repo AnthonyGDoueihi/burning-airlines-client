@@ -14,9 +14,6 @@ class Airplanes extends Component{
     this.updateRows = this.updateRows.bind(this);
     this.updateColumns = this.updateColumns.bind(this);
 
-    axios.get(SERVER_PLANE_URL).then((result) => {
-      console.log(result.data);
-    });
   }
 
   updateRows(r){

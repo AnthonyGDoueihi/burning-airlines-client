@@ -5,6 +5,7 @@ import Nav from './Nav'
 import Header from './Header'
 
 const SERVER_FLIGHT_URL = 'http://localhost:3000/flights.json'
+const SERVER_PLANE_URL = 'http://localhost:3000/airplanes.json'
 
 class Flights extends Component {
 	constructor(){
@@ -12,6 +13,7 @@ class Flights extends Component {
 
 		this.state = {
 			flights: [],
+			planes: []
 		};
 
 		const fetchFlights = () => {
@@ -19,6 +21,11 @@ class Flights extends Component {
 				this.setState( { flights: results.data } );
 			});
 		};
+
+		axios.get(SERVER_PLANE_URL).then((results) => {
+			this.setState( { planes : results.data } );
+			console.log(results.data)
+		});
 
 		fetchFlights();
 	}
@@ -28,7 +35,7 @@ class Flights extends Component {
 			<div className='container'>
         <Nav />
         <Header />
-        <FlightForm />
+        <FlightForm planes={ this.state.planes } />
         <h3>Flights</h3>
         <FlightTable />
       </div>
@@ -41,13 +48,11 @@ class FlightForm extends Component{
 		super();
 
 		this.state = {
-			
-			// t.text "flight_number"
-			// t.text "origin"
-			// t.text "destination"
-			// t.date "date"
-			// t.integer "airplane_id"
-
+			flight_number: "",
+			origin: "",
+			destination: "",
+			date: 0 ,//Empty Date?
+			airplane_id: 0
 		}
 
 		this._handleSubmit = this._handleSubmit.bind(this);
@@ -64,45 +69,44 @@ class FlightForm extends Component{
 	}
 
 	_handleFlightNumber(event){
-
+		this.setState({ flight_number : event.target.value });
 	}
 
 	_handleDate(event){
-
+		this.setState({ date : event.target.value });
 	}
 
 	_handleFrom(event){
-
+		this.setState({ origin : event.target.value });
 	}
 
 	_handleTo(event){
-
+		this.setState({ destination : event.target.value });
 	}
 
 	_handlePlane(event){
-
+		this.setState({ airplane_id : event.target.value });
 	}
 
 	render(){
 		return(
 			<form>
 				<label>Flight Number</label>
-				<input type="text"/>
+				<input type="text" onChange={ this._handleFlightNumber } value={ this.state.flight_number } />
 
-				<label>Date</label
-				<input type="date" />
+				<label>Date</label>
+				<input type="date" onChange={ this._handleDate } value={ this.state.date } />
 
-				<label>From</label>
-				<input type="text"/>
+				<label>Origin</label>
+				<input type="text"onChange={ this._handleFrom } value={ this.state.origin } />
 
-				<label>To</label>
-				<input type="text"/>
+				<label>Destination</label>
+				<input type="text"onChange={ this._handleTo } value={ this.state.destination } />
 
 				<label>Plane</label>
-				<select>
-					<option value="temp">Temp</option>
-					<option value="temp2">Temp2</option>
-					//TODO get all planes as options
+				<select onChange={ this._handlePlane } value={ this.state.plane_model } >
+					this.props.planes.reverse().map( (p) =>
+						<option value={ p.id }>{ p.plane_model }</option> )
 				</select>
 
 				<input type="submit" value="Create"/>
