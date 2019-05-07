@@ -25,7 +25,7 @@ class Nav extends Component {
 		)
 	}
 };
-ReactDOM.render(<NavComponent />, document.querySelector('navbar'));
+// ReactDOM.render(<NavComponent />, document.querySelector('navbar'));
 
 
 
