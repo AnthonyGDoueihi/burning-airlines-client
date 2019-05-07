@@ -66,11 +66,11 @@ class PlaneForm extends Component{
         columns: this.state.columns
       };
 
-    //TODO this dont quite work.
-    axios.post(SERVER_PLANE_URL, toSubmit).then((result) => {
-        console.log(result);
-      }).catch( (err) => {console.log(err)}
-    );
+    axios.post(SERVER_PLANE_URL, toSubmit);
+
+    // .then((result) => {
+        // console.log(result);
+      // }));
 
     this.setState( {
       plane_model: "",
