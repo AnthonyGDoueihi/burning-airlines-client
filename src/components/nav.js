@@ -1,8 +1,11 @@
 import React, {Component} from 'react'
 import axios from 'axios'
-import ReactDOM from 'react-dom';
 
 class Nav extends Component {
+	constructor() {
+		super();
+	};
+
 	render () {
 		return (
 			<nav>
@@ -25,9 +28,6 @@ class Nav extends Component {
 		)
 	}
 };
-// ReactDOM.render(<NavComponent />, document.querySelector('navbar'));
-
-
 
 
 export default Nav;
