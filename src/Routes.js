@@ -9,10 +9,10 @@ import Booking from './components/Booking'
 const Routes = (
   <Router>
     <div>
-      <Route exact path='/' component={ Search } />
-      <Route exact path='/airplanes' component={ Airplanes } />
-      <Route exact path='/flights' component={ Flights } />
-      <Route path='/flight/:name' component={ Booking } />
+      <Route exact path='/Search' component={ Search } />
+      <Route exact path='/Airplanes' component={ Airplanes } />
+      <Route exact path='/Flights' component={ Flights } />
+      <Route path='/Flight/:name' component={ Booking } />
     </div>
   </Router>
 );

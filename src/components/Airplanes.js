@@ -65,10 +65,6 @@ class PlaneForm extends Component{
 
     axios.post(SERVER_PLANE_URL, toSubmit);
 
-    // .then((result) => {
-        // console.log(result);
-      // }));
-
     this.setState( {
       plane_model: "",
       rows: 1,

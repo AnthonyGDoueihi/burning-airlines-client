@@ -29,12 +29,12 @@ class Flights extends Component {
 		const fetchFlights = () => {
 			axios.get(SERVER_FLIGHT_URL).then( (results) => {
 				this.setState( { flights: results.data } );
+				setTimeout(fetchFlights, 4000);
 			});
 		};
 
 		axios.get(SERVER_PLANE_URL).then((results) => {
 			this.setState( { planes : results.data } );
-			console.log(results.data)
 		});
 
 		fetchFlights();
@@ -47,21 +47,21 @@ class Flights extends Component {
         <Header />
         <FlightForm planes={ this.state.planes } />
         <h3>Flights</h3>
-        <FlightTable />
+        <FlightTable flights={ this.state.flights }/>
       </div>
 		);
 	}
 };
 
 class FlightForm extends Component{
-	constructor(){
-		super();
+	constructor(props){
+		super(props);
 
 		this.state = {
 			flight_number: "",
 			origin: "",
 			destination: "",
-			date: 0 ,//Empty Date?
+			date: Date.now,
 			airplane_id: 0
 		}
 
@@ -76,6 +76,26 @@ class FlightForm extends Component{
 	_handleSubmit(event){
 		event.preventDefault();
 
+		if( this.state.airplane_id === '0') { return; }
+		//TODO make this return an error
+
+		const toSubmit = {
+			flight_number: this.state.flight_number,
+			origin: this.state.origin,
+			destination: this.state.destination,
+			date: this.state.date,
+			airplane_id: this.state.airplane_id
+			};
+
+			this.state = {
+				flight_number: "",
+				origin: "",
+				destination: "",
+				date: Date.now,
+				airplane_id: 0
+			}
+
+		axios.post(SERVER_FLIGHT_URL, toSubmit);
 	}
 
 	_handleFlightNumber(event){
@@ -100,23 +120,23 @@ class FlightForm extends Component{
 
 	render(){
 		return(
-			<form>
+			<form onSubmit={ this._handleSubmit } >
 				<label>Flight Number</label>
-				<input type="text" onChange={ this._handleFlightNumber } value={ this.state.flight_number } />
+				<input type="text" onChange={ this._handleFlightNumber } value={ this.state.flight_number } required/>
 
 				<label>Date</label>
-				<input type="date" onChange={ this._handleDate } value={ this.state.date } />
+				<input type="date" onChange={ this._handleDate } value={ this.state.date } required/>
 
 				<label>Origin</label>
-				<input type="text"onChange={ this._handleFrom } value={ this.state.origin } />
+				<input type="text"onChange={ this._handleFrom } value={ this.state.origin } required/>
 
 				<label>Destination</label>
-				<input type="text"onChange={ this._handleTo } value={ this.state.destination } />
+				<input type="text"onChange={ this._handleTo } value={ this.state.destination } required/>
 
 				<label>Plane</label>
-				<select onChange={ this._handlePlane } value={ this.state.plane_model } >
-					this.props.planes.reverse().map( (p) =>
-						<option value={ p.id }>{ p.plane_model }</option> )
+				<select onChange={ this._handlePlane } value={ this.state.plane_model } required>
+					<option key='0' value='0'>Please Select a Plane </option>
+					 { this.props.planes.map( (p) => <option key={ p.id } value={ p.id }>{ p.plane_model }</option> ) }
 				</select>
 
 				<input type="submit" value="Create"/>
@@ -129,9 +149,23 @@ class FlightTable extends Component{
 	render(){
 		return(
 			<div>
+				{ this.props.flights.map( (f) =>
+					<div key={ f.id }>
+						<label>Date</label>
+						<p>{ f.date }</p>
+						<label>Flight</label>
+						<p>{ f.flight_number }</p>
+						<label>Origin</label>
+						<p>{ f.origin }</p>
+						<label>Destination</label>
+						<p>{ f.destination }</p>
+						<label>Seats</label>
+					</div>  ) }
 			</div>
 		)
 	}
 }
+// TODO Seats
+
 
 export default Flights;
