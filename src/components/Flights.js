@@ -36,7 +36,7 @@ class Flights extends Component {
 		return (
 			<div className='container'>
         <Nav />
-        <Header />
+        // <Header />
         <FlightForm planes={ this.state.planes } />
         <h3>Flights</h3>
         <FlightTable flights={ this.state.flights }/>

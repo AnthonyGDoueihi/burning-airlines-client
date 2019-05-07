@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import Header from './Header'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Navbar'
+import Button from 'react-bootstrap/Button';
+
 
 
 class Search extends Component {

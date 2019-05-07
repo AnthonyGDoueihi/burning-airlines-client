@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+<<<<<<< HEAD
+=======
+
+>>>>>>> b711559f85ee9e8ec03576ab4fd628acefe2fe8a
 import Header from './Header'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Navbar'
