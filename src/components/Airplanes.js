@@ -7,6 +7,8 @@ import Col from 'react-bootstrap/Col';
 
 const SERVER_PLANE_URL = 'https://dougmaxi-airlines.herokuapp.com/airplanes.json'
 
+//TODO only admins can use this page
+
 class Airplanes extends Component{
   constructor(props){
     super(props);
@@ -33,7 +35,6 @@ class Airplanes extends Component{
   render(){
     return(
       <div>
-
 			<BootNav user={ this.state.user } />
 			<br/>
         <PlaneForm onRowChange={ this.updateRows } onColumnChange={ this.updateColumns } />
@@ -99,11 +100,11 @@ class PlaneForm extends Component{
     return(
       <form onSubmit={ this._handleSubmit }>
         <label>Plane Model</label>
-        <input type="text" onChange={ this._handleModel } value={ this.state.plane_model }/>
+        <input type="text" onChange={ this._handleModel } value={ this.state.plane_model } required/>
         <label>Rows</label>
-        <input type="number" min="1" onChange={ this._handleRow } value={ this.state.rows }/>
+        <input type="number" min="1" onChange={ this._handleRow } value={ this.state.rows } required/>
         <label>Columns</label>
-        <input type="number" min="1" max="8" onChange={ this._handleColumn } value={ this.state.columns }/>
+        <input type="number" min="1" max="8" onChange={ this._handleColumn } value={ this.state.columns } required/>
         <input type="submit" value="Create"/>
       </form>
     )
@@ -112,15 +113,27 @@ class PlaneForm extends Component{
 
 class SeatsTable extends Component{
   createGrid(){
+    const grid = [];
+    const letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
 
-    return ""
-      // {
-      //   for (let i = 0; i < this.props.columns; i ++){
-      //     <Row>
-      //       <Col></Col>
-      //     </Row>
-      //   }
-      // }
+
+    for (let i = 0; i < this.props.columns; i++){
+
+      const row = [];
+
+      for (let j = 1; j <= this.props.rows; j++){
+        if (j < 14){
+          row.push(<Col className="chair">{letters[i]} {j}</Col>);
+        }else if ( j == this.props.rows ){
+          row.push(<Col className="chair">{letters[i]} {j}</Col>);
+        }else if ( j === 14 ){
+          row.push(<Col className="chair">{letters[i]} ...</Col>);
+        }
+      }
+      grid.push(<Row>{row}</Row>);
+    }
+
+    return grid;
 
   }
 
@@ -129,7 +142,7 @@ class SeatsTable extends Component{
     return(
       <div>
         <Container>
-          // { this.createGrid() }
+          { this.createGrid() }
         </Container>
       </div>
       )

@@ -168,7 +168,6 @@ class FlightTable extends Component{
 		)
 	}
 }
-// TODO Seats and plane name
 
 
 export default Flights;

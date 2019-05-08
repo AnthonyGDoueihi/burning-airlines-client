@@ -10,3 +10,11 @@ h3 {
 .loginBackground {
 	background-image: url("burning-airlines.png");
 }
+
+.chair{
+  text-align: center;
+  line-height: 40px;
+  display: inline-block;
+  border: solid red 1px;
+  min-width: 30px;
+}
