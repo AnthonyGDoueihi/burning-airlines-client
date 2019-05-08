@@ -80,15 +80,15 @@ class FlightForm extends Component{
 			airplane_id: this.state.airplane_id
 			};
 
-			this.state = {
-				flight_number: "",
-				origin: "",
-				destination: "",
-				date: Date.now,
-				airplane_id: 0
-			}
-
 		axios.post(SERVER_FLIGHT_URL, toSubmit);
+
+		this.setState({
+			flight_number: "",
+			origin: "",
+			destination: "",
+			date: Date.now,
+			airplane_id: 0
+		});
 	}
 
 	_handleFlightNumber(event){

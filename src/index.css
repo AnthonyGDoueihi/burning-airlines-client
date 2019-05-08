@@ -3,7 +3,7 @@ body {
   padding: 0;
 }
 
-h3 {
+h3.username {
 	color: white;
 }
 
@@ -17,4 +17,9 @@ h3 {
   display: inline-block;
   border: solid red 1px;
   min-width: 30px;
+}
+
+.chairButton{
+  /* min-width: 100%; */
+  /* line-height: 50px; */
 }

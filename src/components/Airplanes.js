@@ -138,7 +138,6 @@ class SeatsTable extends Component{
   }
 
   render(){
-    //TODO turn into grid
     return(
       <div>
         <Container>

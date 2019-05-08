@@ -35,9 +35,9 @@ class BootNav extends Component {
 						<NavLink href={ `#/${ this.props.user }/Airplanes` }>Airplanes</NavLink>
 						<NavLink href={ `#/${ this.props.user }/Flights` }>Flights</NavLink>
 					</Nav>
-					<h3>{ this.props.user }</h3>
+					<h3 className="username">{ this.props.user }</h3>
 					<NavDropdown title="Change User" id="collasible-nav-dropdown">
-					 {this.state.users.map( (u) => <NavDropdown.Item href={ `#/${ u.name }` } users={ u.name }>{ u.name } </NavDropdown.Item>
+					 {this.state.users.map( (u) => <NavDropdown.Item key={ u.id } href={ `#/${ u.name }` } users={ u.name }>{ u.name } </NavDropdown.Item>
 					)}
 
 				</NavDropdown>
