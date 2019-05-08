@@ -5,6 +5,9 @@ import Nav from 'react-bootstrap/Navbar'
 import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
 import Header from './Header'
+import NavLink from 'react-bootstrap/NavLink'
+import NavbarBrand from 'react-bootstrap/NavbarBrand'
+import { Link } from 'react-router-dom'
 
 
 const SERVER_FLIGHT_URL = 'http://localhost:3000/flights.json'
@@ -36,7 +39,15 @@ class Flights extends Component {
 	render () {
 		return (
 			<div className='container'>
-        <Nav />
+			<Navbar bg="dark" variant="dark">
+		    <NavbarBrand href="#home">Burning Airlines</NavbarBrand>
+		    <Nav className="mr-auto">
+		      <NavLink href="#Search">Search</NavLink>
+		      <NavLink href="#Booking">Booking</NavLink>
+		      <NavLink href="#Airplanes">Airplanes</NavLink>
+					<NavLink href="#Flights">Flights</NavLink>
+		    </Nav>
+		  </Navbar>
         // <Header />
         <FlightForm planes={ this.state.planes } />
         <h3>Flights</h3>
