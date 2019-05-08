@@ -9,8 +9,8 @@ import NavbarBrand from 'react-bootstrap/NavbarBrand'
 import { Link } from 'react-router-dom'
 
 
-const SERVER_FLIGHT_URL = 'http://localhost:3000/flights.json'
-const SERVER_PLANE_URL = 'http://localhost:3000/airplanes.json'
+const SERVER_FLIGHT_URL = 'https://dougmaxi-airlines.herokuapp.com/flights.json'
+const SERVER_PLANE_URL = 'https://dougmaxi-airlines.herokuapp.com/airplanes.json'
 
 class Flights extends Component {
 	constructor(){

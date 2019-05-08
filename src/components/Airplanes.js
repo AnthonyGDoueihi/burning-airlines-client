@@ -5,8 +5,11 @@ import NavbarBrand from 'react-bootstrap/NavbarBrand'
 import NavLink from 'react-bootstrap/NavLink'
 import Nav from 'react-bootstrap/Navbar'
 import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
-const SERVER_PLANE_URL = 'http://localhost:3000/airplanes.json'
+const SERVER_PLANE_URL = 'https://dougmaxi-airlines.herokuapp.com/airplanes.json'
 
 class Airplanes extends Component{
   constructor(){
@@ -114,13 +117,27 @@ class PlaneForm extends Component{
 }
 
 class SeatsTable extends Component{
+  createGrid(){
+
+    return ""
+      // {
+      //   for (let i = 0; i < this.props.columns; i ++){
+      //     <Row>
+      //       <Col></Col>
+      //     </Row>
+      //   }
+      // }
+
+  }
+
   render(){
     //TODO turn into grid
     return(
       <div>
-        <p>{this.props.rows}</p>
-        <p>{this.props.columns}</p>
-        </div>
+        <Container>
+          // { this.createGrid() }
+        </Container>
+      </div>
       )
   }
 }
