@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import BootNav from './BootNav'
+import Table from 'react-bootstrap/Table'
+import { Link } from 'react-router-dom'
 
 const SERVER_FLIGHT_URL = 'https://dougmaxi-airlines.herokuapp.com/flights.json'
 const SERVER_PLANE_URL = 'https://dougmaxi-airlines.herokuapp.com/airplanes.json'

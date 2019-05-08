@@ -9,7 +9,7 @@ import axios from 'axios'
 
 const SERVER_USER_URL = 'https://dougmaxi-airlines.herokuapp.com/users.json'
 
-class BootNav extends Component {
+class LogIn extends Component {
 	constructor() {
 		super();
 
@@ -28,12 +28,7 @@ class BootNav extends Component {
 	render () {
 			return (
 				<Navbar bg="dark" variant="dark">
-					<NavbarBrand href="#">Burning Airlines</NavbarBrand>
-					<Nav className="mr-auto">
-						<NavLink href="#temp/Search">Search</NavLink>
-						<NavLink href="#temp/Airplanes">Airplanes</NavLink>
-						<NavLink href="#temp/Flights">Flights</NavLink>
-					</Nav>
+					<NavbarBrand href="#">Login Page</NavbarBrand>
 					<NavDropdown title="Change User" id="collasible-nav-dropdown">
 					 {this.state.users.map( (u) => <NavDropdown.Item href="#" users={ u.name }>{ u.name } </NavDropdown.Item>
 					)}
@@ -46,4 +41,4 @@ class BootNav extends Component {
 }
 };
 
-export default BootNav;
+export default LogIn;

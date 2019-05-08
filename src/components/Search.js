@@ -7,17 +7,6 @@ class Search extends Component {
 	constructor(){
 		super();
 
-		this.state = {
-			users: [],
-}
-			const getUsers = () => {
-				axios.get(SERVER_USER_URL).then( (results) => {
-					this.setState( { users: results.data } );
-				});
-			};
-
-			getUsers();
-
 	}
 
 	render () {
