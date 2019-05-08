@@ -48,8 +48,9 @@ class Booking extends Component {
 };
 
 class BookingTable extends Component{
-	constructor(){
-		super()
+	constructor(props){
+		super(props)
+		console.log(this.props.res);
 
 		this.state = {
 			reservations: [],
@@ -82,10 +83,13 @@ class BookingTable extends Component{
 				let found = false;
 
 				this.props.res.some( (chair) => {
+
 					if( chair.row === i && chair.column === j + 1 ){
-						column.push(<Chair flightid={this.props.flightid} user={this.props.user} key={j} row={i} column={j} owner={chair.name} userid={this.state.user_id} deleteid={this.props.res.id}/> );
+						column.push(<Chair flightid={this.props.flightid} user={this.props.user} key={j} row={i} column={j} owner={chair.name} userid={this.state.user_id} deleteid={chair.id}/> );
+
 						found = true;
 						return true;
+
 					}else{
 						return false;
 					}
