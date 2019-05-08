@@ -7,7 +7,8 @@ import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 
 const SERVER_FLIGHT_URL = 'https://dougmaxi-airlines.herokuapp.com/flights.json'
-const SERVER_RESOURCE_URL = 'https://dougmaxi-airlines.herokuapp.com/resources.json'
+const SERVER_RESERVATION_URL = 'https://dougmaxi-airlines.herokuapp.com/reservations.json'
+const SERVER_USER_URL = 'https://dougmaxi-airlines.herokuapp.com/users.json'
 
 class Booking extends Component {
 	constructor(props){
@@ -31,14 +32,13 @@ class Booking extends Component {
 
 	}
 
-
-
 	render () {
 		return (
 			<div>
 				<BootNav user={ this.state.user } />
 				<br/>
 				<h3>{this.state.flight_number}</h3>
+				//TODO pretty up
 				<h5>{this.state.flight.date} \o.o/ {this.state.flight.origin} > {this.state.flight.destination} \o.o/ {this.state.flight.plane_model}</h5>
 
 				<BookingTable user={this.state.user} rows={this.state.flight.rows} flightid={this.state.flight.id} columns={this.state.flight.columns} res={this.state.flight.reservation} />
@@ -52,8 +52,21 @@ class BookingTable extends Component{
 		super()
 
 		this.state = {
-			reservations: []
+			reservations: [],
+			user_id: -1
 		}
+
+		axios.get(SERVER_USER_URL).then((results) => {
+			results.data.some ( (user) => {
+				if ( user.name === this.props.user ){
+					this.setState({ user_id: user.id });
+					return true;
+				}else{
+					return false;
+				}
+			})
+		})
+
 
 	}
 
@@ -70,7 +83,7 @@ class BookingTable extends Component{
 
 				this.props.res.some( (chair) => {
 					if( chair.row === i && chair.column === j + 1 ){
-						column.push(<Chair flightid={this.props.flightid} user={this.props.user} key={j} row={i} column={j} owner={chair.name} /> );
+						column.push(<Chair flightid={this.props.flightid} user={this.props.user} key={j} row={i} column={j} owner={chair.name} userid={this.state.user_id} deleteid={this.props.res.id}/> );
 						found = true;
 						return true;
 					}else{
@@ -79,7 +92,7 @@ class BookingTable extends Component{
 				})
 
 				if( !found ){
-        	column.push(<Chair flightid={this.props.flightid} user={this.props.user} key={j} row={i} column={j} owner="null"/> );
+        	column.push(<Chair flightid={this.props.flightid} user={this.props.user} key={j} row={i} column={j} owner="null" userid={this.state.user_id} deleteid='-1'/> );
 				}
       }
       grid.push(<Row key={i} >{column}</Row>);
@@ -107,7 +120,7 @@ class Chair extends Component{
 			owner: this.props.owner,
 			row: this.props.row,
 			column: this.props.column,
-			deleteid: -1
+			deleteid: this.props.deleteid
 		}
 
 		this._selectSeat = this._selectSeat.bind(this);
@@ -116,22 +129,30 @@ class Chair extends Component{
 	}
 
 	_selectSeat(){
-		// const toSubmit = {
-			// row: this.state.row,
-			// column: this.state.column,
-			// user_id: , This needs to be id, can get earleir
-			// flight_id: this.props.flightid
-		// }
+		const toSubmit = {
+			row: this.state.row,
+			column: this.state.column,
+			user_id: this.props.userid,
+			flight_id: this.props.flightid
+		}
 
-		// axios.post(SERVER_RESOURCE_URL, toSubmit);
-		// get id that is returned to destroy them
-		this.setState({ owner: this.props.user });
+		axios.post(SERVER_RESERVATION_URL, toSubmit).then( (result) => {
+			this.setState({
+				owner: this.props.user,
+		 		deleteid: result.data.id
+			})
+		});
 	}
 
 	_deselectSeat(){
-//		axios.post(SERVER_RESOURCE_URL, toSubmit);
-// axios.delete
-		this.setState({ owner: 'null' });
+
+		axios.delete(`https://dougmaxi-airlines.herokuapp.com/reservations/${this.state.deleteid}.json`).then( (result) => {
+			console.log(result);
+			this.setState({
+				owner: 'null',
+				deleteid: -1
+			});
+		})
 	}
 
 	getLetter(num){
