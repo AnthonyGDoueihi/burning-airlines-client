@@ -1,13 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import Navbar from 'react-bootstrap/Navbar'
-import Nav from 'react-bootstrap/Navbar'
-import Button from 'react-bootstrap/Button';
-import Header from './Header'
-import NavLink from 'react-bootstrap/NavLink'
-import NavbarBrand from 'react-bootstrap/NavbarBrand'
-import { Link } from 'react-router-dom'
-
+import BootNav from './BootNav'
 
 const SERVER_FLIGHT_URL = 'http://localhost:3000/flights.json'
 const SERVER_PLANE_URL = 'http://localhost:3000/airplanes.json'
@@ -38,17 +31,10 @@ class Flights extends Component {
 	render () {
 		return (
 			<div className='container'>
-			<Navbar bg="dark" variant="dark">
-		    <NavbarBrand href="#home">Burning Airlines</NavbarBrand>
-		    <Nav className="mr-auto">
-		      <NavLink href="#Search">Search</NavLink>
-		      <NavLink href="#Booking">Booking</NavLink>
-		      <NavLink href="#Airplanes">Airplanes</NavLink>
-					<NavLink href="#Flights">Flights</NavLink>
-		    </Nav>
-		  </Navbar>
-        // <Header />
+				<BootNav />
+						<br/>
         <FlightForm planes={ this.state.planes } />
+						<br/>
         <h3>Flights</h3>
         <FlightTable flights={ this.state.flights }/>
       </div>

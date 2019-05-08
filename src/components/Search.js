@@ -1,32 +1,33 @@
 import React, { Component } from 'react'
-import Header from './Header'
-import Navbar from 'react-bootstrap/Navbar'
-import NavbarBrand from 'react-bootstrap/NavbarBrand'
-import NavLink from 'react-bootstrap/NavLink'
-import Nav from 'react-bootstrap/Navbar'
-import Button from 'react-bootstrap/Button';
+import BootNav from './BootNav'
+import axios from 'axios';
 
-
+const SERVER_USER_URL = 'https://dougmaxi-airlines.herokuapp.com/users.json'
 
 class Search extends Component {
 	constructor(){
 		super();
+
+		this.state = {
+			users: [],
+}
+			const getUsers = () => {
+				axios.get(SERVER_USER_URL).then( (results) => {
+					this.setState( { users: results.data } );
+				});
+			};
+
+			getUsers();
+
 	}
 
 	render () {
 		return (
 			<div className='container'>
-			<Navbar bg="dark" variant="dark">
-		    <NavbarBrand href="#home">Burning Airlines</NavbarBrand>
-		    <Nav className="mr-auto">
-		      <NavLink href="#Search">Search</NavLink>
-		      <NavLink href="#Booking">Booking</NavLink>
-		      <NavLink href="#Airplanes">Airplanes</NavLink>
-					<NavLink href="#Flights">Flights</NavLink>
-		    </Nav>
-		  </Navbar>
-        <Header />
+				<BootNav />
+			<br/>
         <SearchForm />
+						<br/>
         <h3>Flight Search Results</h3>
         <ResultsTable />
       </div>
