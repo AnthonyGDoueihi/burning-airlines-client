@@ -4,15 +4,19 @@ import axios from 'axios';
 
 
 class Search extends Component {
-	constructor(){
-		super();
+	constructor(props){
+		super(props);
+
+		this.state = {
+			user: this.props.match.params.user
+		};
 
 	}
 
 	render () {
 		return (
-			<div className='container'>
-				<BootNav />
+			<div>
+				<BootNav user={ this.state.user } />
 			<br/>
 
         <SearchForm />

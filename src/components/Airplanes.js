@@ -8,9 +8,13 @@ import Col from 'react-bootstrap/Col';
 const SERVER_PLANE_URL = 'https://dougmaxi-airlines.herokuapp.com/airplanes.json'
 
 class Airplanes extends Component{
-  constructor(){
-    super();
-    this.state = { rows: 1 , columns: 1 }
+  constructor(props){
+    super(props);
+    this.state = {
+      rows: 1 ,
+      columns: 1,
+      user: this.props.match.params.user
+    }
 
     this.updateRows = this.updateRows.bind(this);
     this.updateColumns = this.updateColumns.bind(this);
@@ -28,9 +32,9 @@ class Airplanes extends Component{
 
   render(){
     return(
-      <div className='container'>
+      <div>
 
-			<BootNav />
+			<BootNav user={ this.state.user } />
 			<br/>
         <PlaneForm onRowChange={ this.updateRows } onColumnChange={ this.updateColumns } />
         <h3></h3>

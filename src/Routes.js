@@ -1,5 +1,5 @@
 import React from 'react'
-import { HashRouter as Router, Route } from 'react-router-dom'
+import { HashRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
 
 import Home from './components/Home'
 import Search from './components/Search'
@@ -11,10 +11,13 @@ const Routes = (
   <Router>
     <div>
       <Route exact path='/' component={ Home } />
-      <Route path='/:users/Search' component={ Search } />
-      <Route path='/:users/Airplanes' component={ Airplanes } />
-      <Route path='/:users/Flights' component={ Flights } />
-      <Route path='/:users/Flight/:name' component={ Booking } />
+      <Route path='/:user/Airplanes' component={ Airplanes } />
+      <Route path='/:user/Flights' component={ Flights } />
+      <Route path='/:user/Flight/:flight' component={ Booking } />
+      <Switch>
+        <Route path='/:user/Search' component={ Search } />
+        <Redirect from='/:user' to='/:user/Search' />
+      </Switch>
     </div>
   </Router>
 );
