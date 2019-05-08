@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import BootNav from './BootNav'
+
 const SERVER_PLANE_URL = 'http://localhost:3000/airplanes.json'
 
 class Airplanes extends Component{
@@ -25,6 +26,7 @@ class Airplanes extends Component{
   render(){
     return(
       <div className='container'>
+
 			<BootNav />
 			<br/>
         <PlaneForm onRowChange={ this.updateRows } onColumnChange={ this.updateColumns } />

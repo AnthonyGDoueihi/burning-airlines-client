@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import BootNav from './BootNav'
 import axios from 'axios';
 
+
 const SERVER_USER_URL = 'https://dougmaxi-airlines.herokuapp.com/users.json'
 
 class Search extends Component {
@@ -26,6 +27,7 @@ class Search extends Component {
 			<div className='container'>
 				<BootNav />
 			<br/>
+
         <SearchForm />
 						<br/>
         <h3>Flight Search Results</h3>
