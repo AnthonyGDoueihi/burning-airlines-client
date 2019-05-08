@@ -1,10 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import Navbar from 'react-bootstrap/Navbar'
-import NavbarBrand from 'react-bootstrap/NavbarBrand'
-import NavLink from 'react-bootstrap/NavLink'
-import Nav from 'react-bootstrap/Navbar'
-import Button from 'react-bootstrap/Button';
+import BootNav from './BootNav'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -33,15 +29,9 @@ class Airplanes extends Component{
   render(){
     return(
       <div className='container'>
-			<Navbar bg="dark" variant="dark">
-		    <NavbarBrand href="#home">Burning Airlines</NavbarBrand>
-		    <Nav className="mr-auto">
-		      <NavLink href="#Search">Search</NavLink>
-		      <NavLink href="#Booking">Booking</NavLink>
-		      <NavLink href="#Airplanes">Airplanes</NavLink>
-					<NavLink href="#Flights">Flights</NavLink>
-		    </Nav>
-		  </Navbar>
+
+			<BootNav />
+			<br/>
         <PlaneForm onRowChange={ this.updateRows } onColumnChange={ this.updateColumns } />
         <h3></h3>
         <SeatsTable rows={ this.state.rows } columns={ this.state.columns } />
