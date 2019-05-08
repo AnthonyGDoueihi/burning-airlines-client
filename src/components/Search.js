@@ -17,11 +17,12 @@ class Search extends Component {
 		return (
 			<div className='container'>
 			<Navbar bg="dark" variant="dark">
-		    <NavbarBrand href="#home">Navbar</NavbarBrand>
+		    <NavbarBrand href="#home">Burning Airlines</NavbarBrand>
 		    <Nav className="mr-auto">
-		      <NavLink href="#home">Home</NavLink>
-		      <NavLink href="#features">Features</NavLink>
-		      <NavLink href="#pricing">Pricing</NavLink>
+		      <NavLink href="#Search">Search</NavLink>
+		      <NavLink href="#Booking">Booking</NavLink>
+		      <NavLink href="#Airplanes">Airplanes</NavLink>
+					<NavLink href="#Flights">Flights</NavLink>
 		    </Nav>
 		  </Navbar>
         <Header />
