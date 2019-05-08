@@ -3,8 +3,12 @@ body {
   padding: 0;
 }
 
-h3.username{
-  color: white;
+h3.username {
+	color: white;
+}
+
+.loginBackground {
+	background-image: url("burning-airlines.png");
 }
 
 .chair{
