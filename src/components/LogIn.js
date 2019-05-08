@@ -30,7 +30,7 @@ class LogIn extends Component {
 				<Navbar bg="dark" variant="dark">
 					<NavbarBrand href="#">Login Page</NavbarBrand>
 					<NavDropdown title="Change User" id="collasible-nav-dropdown">
-					 {this.state.users.map( (u) => <NavDropdown.Item href="#" users={ u.name }>{ u.name } </NavDropdown.Item>
+					 {this.state.users.map( (u) => <NavDropdown.Item href={ `#/${ u.name }` } users={ u.name }>{ u.name } </NavDropdown.Item>
 					)}
 
 				</NavDropdown>
