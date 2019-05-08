@@ -3,6 +3,7 @@ import axios from 'axios'
 import Navbar from 'react-bootstrap/Navbar'
 import Nav from 'react-bootstrap/Navbar'
 import Button from 'react-bootstrap/Button';
+import Table from 'react-bootstrap/Table';
 import Header from './Header'
 
 
@@ -140,24 +141,32 @@ class FlightForm extends Component{
 class FlightTable extends Component{
 	render(){
 		return(
-			<div>
-				{ this.props.flights.map( (f) =>
-					<div key={ f.id }>
-						<label>Date</label>
-						<p>{ f.date }</p>
-						<label>Flight</label>
-						<p>{ f.flight_number }</p>
-						<label>Origin</label>
-						<p>{ f.origin }</p>
-						<label>Destination</label>
-						<p>{ f.destination }</p>
-						<label>Seats</label>
-					</div>  ) }
-			</div>
+
+			<Table striped bordered hover size="sm">
+  			<thead>
+    		<tr>
+      		<th>Date</th>
+      		<th>Flight</th>
+      		<th>From > To</th>
+      		<th>Plane</th>
+      		<th>Seats</th>
+    		</tr>
+  			</thead>
+  			<tbody>
+
+					{ this.props.flights.map( (f) =>
+					<tr key={ f.id }>
+						<td>{ f.date }</td>
+						<td>{ f.flight_number }</td>
+						<td>{ f.origin } > { f.destination }</td>
+					</tr>)}
+
+  			</tbody>
+			</Table>
 		)
 	}
 }
-// TODO Seats
+// TODO Seats and plane name
 
 
 export default Flights;
