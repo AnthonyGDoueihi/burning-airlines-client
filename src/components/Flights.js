@@ -1,17 +1,20 @@
-import React, { Component } from 'react'
-import axios from 'axios'
-import BootNav from './BootNav'
+import React, { Component } from 'react';
+import axios from 'axios';
+import BootNav from './BootNav';
+import Table from 'react-bootstrap/Table';
+import { Link } from 'react-router-dom';
 
 const SERVER_FLIGHT_URL = 'https://dougmaxi-airlines.herokuapp.com/flights.json'
 const SERVER_PLANE_URL = 'https://dougmaxi-airlines.herokuapp.com/airplanes.json'
 
 class Flights extends Component {
-	constructor(){
-		super();
+	constructor(props){
+		super(props);
 
 		this.state = {
 			flights: [],
-			planes: []
+			planes: [],
+			user: this.props.match.params.user
 		};
 
 		const fetchFlights = () => {
@@ -30,13 +33,13 @@ class Flights extends Component {
 
 	render () {
 		return (
-			<div className='container'>
-				<BootNav />
+			<div>
+				<BootNav user={ this.state.user } />
 						<br/>
         <FlightForm planes={ this.state.planes } />
 						<br/>
         <h3>Flights</h3>
-        <FlightTable flights={ this.state.flights }/>
+        <FlightTable flights={ this.state.flights } user={ this.state.user } />
       </div>
 		);
 	}
@@ -153,7 +156,7 @@ class FlightTable extends Component{
 					{ this.props.flights.map( (f) =>
 					<tr key={ f.id }>
 						<td>{ f.date }</td>
-						<td><Link to={ `/Flight/${ f.flight_number }`}>{ f.flight_number }</Link></td>
+						<td><Link to={ `/${ this.props.user }/Flight/${ f.flight_number }`}>{ f.flight_number }</Link></td>
 						<td>{ f.origin } > { f.destination }</td>
 						<td>{ f.plane_model }</td>
 						<td>{ f.rows * f.columns }</td>

@@ -4,26 +4,18 @@ import axios from 'axios';
 
 
 class Search extends Component {
-	constructor(){
-		super();
+	constructor(props){
+		super(props);
 
 		this.state = {
-			users: [],
-}
-			const getUsers = () => {
-				axios.get(SERVER_USER_URL).then( (results) => {
-					this.setState( { users: results.data } );
-				});
-			};
-
-			getUsers();
-
+			user: this.props.match.params.user
+		};
 	}
 
 	render () {
 		return (
-			<div className='container'>
-				<BootNav />
+			<div>
+				<BootNav user={ this.state.user } />
 			<br/>
 
         <SearchForm />
