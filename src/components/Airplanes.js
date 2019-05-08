@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import Header from './Header'
 import Navbar from 'react-bootstrap/Navbar'
 import NavbarBrand from 'react-bootstrap/NavbarBrand'
 import NavLink from 'react-bootstrap/NavLink'
@@ -40,7 +39,6 @@ class Airplanes extends Component{
 					<NavLink href="#Flights">Flights</NavLink>
 		    </Nav>
 		  </Navbar>
-        <Header />
         <PlaneForm onRowChange={ this.updateRows } onColumnChange={ this.updateColumns } />
         <h3></h3>
         <SeatsTable rows={ this.state.rows } columns={ this.state.columns } />

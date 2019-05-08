@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import Header from './Header'
 import Navbar from 'react-bootstrap/Navbar'
 import NavbarBrand from 'react-bootstrap/NavbarBrand'
 import NavLink from 'react-bootstrap/NavLink'

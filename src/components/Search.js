@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Header from './Header'
 import Navbar from 'react-bootstrap/Navbar'
 import NavbarBrand from 'react-bootstrap/NavbarBrand'
 import NavLink from 'react-bootstrap/NavLink'
@@ -25,7 +24,6 @@ class Search extends Component {
 					<NavLink href="#Flights">Flights</NavLink>
 		    </Nav>
 		  </Navbar>
-        <Header />
         <SearchForm />
         <h3>Flight Search Results</h3>
         <ResultsTable />
