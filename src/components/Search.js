@@ -7,10 +7,11 @@ class Search extends Component {
 	constructor(props){
 		super(props);
 
-		this.state = {
-			user: this.props.match.params.user
-		};
 
+		this.state = {
+			user: this.props.match.params.user,
+			flight: []
+		};
 	}
 
 	render () {
@@ -31,7 +32,7 @@ class Search extends Component {
 class SearchForm extends Component{
 	render(){
 		return(
-			<form>
+			<form >
 				<label>From</label>
 				<input type="search"/>
 				<label>To</label>

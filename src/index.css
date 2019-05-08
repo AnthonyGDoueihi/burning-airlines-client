@@ -3,6 +3,10 @@ body {
   padding: 0;
 }
 
-h3{
-  color: white;
+h3 {
+	color: white;
+}
+
+.loginBackground {
+	background-image: url("burning-airlines.png");
 }
