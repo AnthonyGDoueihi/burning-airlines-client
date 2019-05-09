@@ -17,6 +17,7 @@ class Booking extends Component {
 			user: this.props.match.params.user,
 			flight: {},
 			flight_number: this.props.match.params.flight,
+			counter: 0
 		}
 
 
@@ -25,12 +26,12 @@ class Booking extends Component {
 				results.data.forEach( (flight) => {
 					if ( flight.flight_number == this.state.flight_number ){
 						this.setState({
-								flight: flight
+								flight: flight,
+								counter: this.state.counter + 1
 							});
-
 						}
 					});
-					setTimeout(fetchFlightInfo, 4000);
+					setTimeout(fetchFlightInfo, 1000);
 				});
 		}
 
@@ -46,7 +47,7 @@ class Booking extends Component {
 				<h3>{this.state.flight_number}</h3>
 				<h5>{this.state.flight.date} \o.o/ {this.state.flight.origin} > {this.state.flight.destination} \o.o/ {this.state.flight.plane_model}</h5>
 
-				<BookingTable user={this.state.user} rows={this.state.flight.rows} flightid={this.state.flight.id} columns={this.state.flight.columns} res={this.state.flight.reservation} />
+				<BookingTable user={this.state.user} rows={this.state.flight.rows} flightid={this.state.flight.id} columns={this.state.flight.columns} res={this.state.flight.reservation} counter={this.state.counter}/>
 			</div>
 		);
 	}
@@ -125,7 +126,6 @@ class Chair extends Component{
 		super(props);
 
 		this.state = {
-			owner: this.props.owner,
 			row: this.props.row,
 			column: this.props.column,
 			deleteid: this.props.deleteid
@@ -169,17 +169,17 @@ class Chair extends Component{
 	}
 
 	buttonCheck(){
-		if ( this.state.owner === 'null' ){
+		if ( this.props.owner === 'null' ){
 
 			return <Button className="chairButton" onClick={this._selectSeat} variant="primary">{this.getLetter(this.state.column)} {this.state.row}</Button>
 
-		}else if( this.state.owner === this.props.user){
+		}else if( this.props.owner === this.props.user){
 
-			return <Button className="chairButton" onClick={this._deselectSeat} variant="success">{this.state.owner}</Button>
+			return <Button className="chairButton" onClick={this._deselectSeat} variant="success">{this.props.owner}</Button>
 
 		}else{
 
-			return <Button className="chairButton" variant="danger">{this.state.owner}</Button>
+			return <Button className="chairButton" variant="danger">{this.props.owner}</Button>
 
 		}
 	}
