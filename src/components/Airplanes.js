@@ -111,8 +111,18 @@ class PlaneForm extends Component{
   };
 
   _handleColumn(event){
-    this.setState({ columns: event.target.value });
-    this.props.onColumnChange( event.target.value );
+    let col = 0;
+
+    if ( event.target.value >= 8 ){
+      col = 8;
+    }else if ( event.target.value < 1 ){
+      col = 1;
+    }else{
+      col = event.target.value;
+    }
+
+    this.setState({ columns: col });
+    this.props.onColumnChange( col );
   };
 
   _handleModel(event){
@@ -127,7 +137,7 @@ class PlaneForm extends Component{
         <label>&nbsp;Plane Model:&nbsp;&nbsp;</label>
         <input type="text" onChange={ this._handleModel } value={ this.state.plane_model } required/>
         <label>&nbsp;Rows:&nbsp;&nbsp;</label>
-        <input type="number" min="1" onChange={ this._handleRow } value={ this.state.rows } required/>
+        <input type="number" min="1" max="1000" onChange={ this._handleRow } value={ this.state.rows } required/>
         <label>&nbsp;Columns:&nbsp;&nbsp;</label>
         <input type="number" min="1" max="8" onChange={ this._handleColumn } value={ this.state.columns } required/>
         <input type="submit" value="Create"/>
@@ -148,11 +158,11 @@ class SeatsTable extends Component{
 
       for (let j = 1; j <= this.props.rows; j++){
         if (j < 14){
-          row.push(<Col className="chair">{letters[i]} {j}</Col>);
+          row.push(<Col className="chairDemo">{letters[i]} {j}</Col>);
         }else if ( j == this.props.rows ){
-          row.push(<Col className="chair">{letters[i]} {j}</Col>);
+          row.push(<Col className="chairDemo">{letters[i]} {j}</Col>);
         }else if ( j === 14 ){
-          row.push(<Col className="chair">{letters[i]} ...</Col>);
+          row.push(<Col className="chairDemo">{letters[i]} ...</Col>);
         }
       }
       grid.push(<Row>{row}</Row>);

@@ -31,7 +31,7 @@ class Booking extends Component {
 							});
 						}
 					});
-					setTimeout(fetchFlightInfo, 1000);
+					setTimeout(fetchFlightInfo, 500);
 				});
 		}
 
