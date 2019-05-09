@@ -14,16 +14,38 @@ class BootNav extends Component {
 		super(props);
 
 		this.state = {
-			users: [],
+			users: []
 		}
 
 		const getUsers = () => {
 			axios.get(SERVER_USER_URL).then( (results) => {
-				this.setState( { users: results.data } );
+				this.setState( {
+					users: results.data,
+				 } );
+
+				if( this.props.checkAdmin ){
+					let admins = [];
+
+					results.data.forEach( (user) => {
+						if (user.admin){
+							admins.push(user.name);
+						}
+					})
+
+					if( admins.indexOf(this.props.user) === -1 ){
+						this.props.checkAdmin(false);
+					}else{
+						this.props.checkAdmin(true);
+					}
+
+				}
+
+
 			});
 		};
 
 		getUsers();
+
 	};
 
 	render () {
@@ -43,8 +65,7 @@ class BootNav extends Component {
 				</NavDropdown>
 				</Navbar>
 			)
-
-}
+		}
 };
 
 export default BootNav;

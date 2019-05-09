@@ -15,12 +15,19 @@ class Airplanes extends Component{
     this.state = {
       rows: 1 ,
       columns: 1,
-      user: this.props.match.params.user
+      user: this.props.match.params.user,
+      admin: false
     }
 
     this.updateRows = this.updateRows.bind(this);
     this.updateColumns = this.updateColumns.bind(this);
+    this.isAdmin = this.isAdmin.bind(this);
+  }
 
+  isAdmin(admin){
+    if ( admin ){
+      this.setState({ admin:true });
+    }
   }
 
   updateRows(r){
@@ -33,15 +40,31 @@ class Airplanes extends Component{
 
 
   render(){
-    return(
-      <div>
-			<BootNav user={ this.state.user } />
-			<br/>
-        <PlaneForm onRowChange={ this.updateRows } onColumnChange={ this.updateColumns } />
-        <h3></h3>
-        <SeatsTable rows={ this.state.rows } columns={ this.state.columns } />
-      </div>
-    )
+    if( this.state.admin ){
+
+      return(
+        <div>
+			    <BootNav user={ this.state.user } checkAdmin={ this.isAdmin }/>
+			    <br/>
+          <PlaneForm onRowChange={ this.updateRows } onColumnChange={ this.updateColumns } />
+
+          <h3></h3>
+
+          <SeatsTable rows={ this.state.rows } columns={ this.state.columns } />
+        </div>
+      )
+    }else{
+
+      return(
+        <div>
+          <BootNav user={ this.state.user } checkAdmin={ this.isAdmin }/>
+          <br/>
+
+          <h3>You are not an admit. You can't make a plane.</h3>
+
+        </div>
+      )
+    }
   }
 }
 
