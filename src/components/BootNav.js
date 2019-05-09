@@ -51,7 +51,7 @@ class BootNav extends Component {
 	render () {
 			return (
 				<Navbar bg="dark" variant="dark">
-					<h2>Burning Airlines</h2>
+					<h2 href="#/">Burning Airlines</h2>
 					<Nav className="mr-auto">
 						<NavLink href={ `#/${ this.props.user }/Search` }>Search</NavLink>
 						<NavLink href={ `#/${ this.props.user }/Airplanes` }>Airplanes</NavLink>

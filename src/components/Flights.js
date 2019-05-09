@@ -4,6 +4,7 @@ import BootNav from './BootNav';
 import Table from 'react-bootstrap/Table';
 import { Link } from 'react-router-dom';
 import '../index.css'
+import planeicon from '../assets/airplane-crash.jpg'
 
 const SERVER_FLIGHT_URL = 'https://dougmaxi-airlines.herokuapp.com/flights.json'
 const SERVER_PLANE_URL = 'https://dougmaxi-airlines.herokuapp.com/airplanes.json'
@@ -37,12 +38,12 @@ class Flights extends Component {
 			<div>
 				<BootNav user={ this.state.user } />
 						<br/>
-						<h3>Create Flights</h3>
+						<h3><img className="thumb" src={planeicon} alt="Burning Airlines"/>&nbsp;Create Flights</h3>
 						<br/>
         <FlightForm planes={ this.state.planes } />
 						<br/>
 						<br/>
-        <h3>Flights</h3>
+        <h3><img className="thumb" src={planeicon} alt="Burning Airlines"/>Flights</h3>
 						<br/>
         <FlightTable flights={ this.state.flights } user={ this.state.user } />
       </div>

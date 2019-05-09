@@ -11,8 +11,8 @@ h2 {
 	color: white;
 }
 
-.loginBackground {
-	background-image: url("burning-airlines.png");
+.thumb {
+	max-height: 1.5em
 }
 
 .chairDemo{
