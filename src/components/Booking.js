@@ -85,7 +85,7 @@ class BookingTable extends Component{
 				this.props.res.some( (chair) => {
 
 					if( chair.row === i && chair.column === j + 1 ){
-						column.push(<Chair flightid={this.props.flightid} user={this.props.user} key={j} row={i} column={j} owner={chair.name} userid={this.state.user_id} deleteid={chair.id}/> );
+						column.push(<Chair flightid={this.props.flightid} user={this.props.user} key={j} row={i} column={j + 1} owner={chair.name} userid={this.state.user_id} deleteid={chair.id}/> );
 
 						found = true;
 						return true;
@@ -96,7 +96,7 @@ class BookingTable extends Component{
 				})
 
 				if( !found ){
-        	column.push(<Chair flightid={this.props.flightid} user={this.props.user} key={j} row={i} column={j} owner="null" userid={this.state.user_id} deleteid='-1'/> );
+        	column.push(<Chair flightid={this.props.flightid} user={this.props.user} key={j} row={i} column={j + 1} owner="null" userid={this.state.user_id} deleteid='-1'/> );
 				}
       }
       grid.push(<Row key={i} >{column}</Row>);
@@ -161,7 +161,7 @@ class Chair extends Component{
 
 	getLetter(num){
 		const letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
-		return letters[num];
+		return letters[num - 1];
 	}
 
 	buttonCheck(){
