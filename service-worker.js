@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/burning-airlines-client/precache-manifest.89c744d9d085ac89704cb68c84a118de.js"
+  "/burning-airlines-client/precache-manifest.369ec48101b5eee506f3ed1907bfc8d7.js"
 );
 
 self.addEventListener('message', (event) => {
