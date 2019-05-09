@@ -4,6 +4,7 @@ import BootNav from './BootNav'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import planeicon from '../assets/airplane-crash.jpg'
 
 const SERVER_PLANE_URL = 'https://dougmaxi-airlines.herokuapp.com/airplanes.json'
 
@@ -122,7 +123,7 @@ class PlaneForm extends Component{
   render(){
     return(
       <form onSubmit={ this._handleSubmit }>
-				<h3>Add Plane To Database</h3>
+				<h3><img className="thumb" src={planeicon} alt="Burning Airlines"/>&nbsp;Add Plane To Database</h3>
 				<br/>
         <label>&nbsp;Plane Model:&nbsp;&nbsp;</label>
         <input type="text" onChange={ this._handleModel } value={ this.state.plane_model } required/>

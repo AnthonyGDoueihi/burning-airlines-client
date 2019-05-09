@@ -4,6 +4,7 @@ import Table from 'react-bootstrap/Table';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import '../index.css'
+import planeicon from '../assets/airplane-crash.jpg'
 
 const SERVER_FLIGHT_URL = 'https://dougmaxi-airlines.herokuapp.com/flights.json'
 
@@ -51,7 +52,7 @@ class Search extends Component {
 			<div>
 				<BootNav user={ this.state.user } />
 					<br/>
-        <h3>Flight Search Results</h3>
+        <h3><img className="thumb" src={planeicon} alt="Burning Airlines"/>&nbsp;Flight Search</h3>
 					<br/>
 				<form onSubmit={this.handleSubmit}>
 					<label>&nbsp;Origin:&nbsp;&nbsp;
