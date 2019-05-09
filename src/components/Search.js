@@ -65,7 +65,7 @@ class Search extends Component {
 
 				</form>
 				<br/>
-        <ResultsTable flights={ this.state.flights } />
+        <ResultsTable user={this.props.match.params.user} flights={ this.state.flights } />
 			</div>
 		);
 	}

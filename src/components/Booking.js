@@ -20,17 +20,21 @@ class Booking extends Component {
 		}
 
 
+		const fetchFlightInfo = () => {
+			axios.get(SERVER_FLIGHT_URL).then((results) => {
+				results.data.forEach( (flight) => {
+					if ( flight.flight_number == this.state.flight_number ){
+						this.setState({
+								flight: flight
+							});
 
-		axios.get(SERVER_FLIGHT_URL).then((results) => {
-			results.data.forEach( (flight) => {
-				if ( flight.flight_number == this.state.flight_number ){
-					this.setState({
-							flight: flight
-						});
+						}
+					});
+					setTimeout(fetchFlightInfo, 4000);
+				});
+		}
 
-				}
-			})
-		});
+		fetchFlightInfo();
 
 	}
 
@@ -51,7 +55,6 @@ class Booking extends Component {
 class BookingTable extends Component{
 	constructor(props){
 		super(props)
-		console.log(this.props.res);
 
 		this.state = {
 			reservations: [],
