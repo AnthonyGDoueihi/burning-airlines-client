@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "346dbe5504bda3fbd9f630b20641ff24",
+    "revision": "6dcaf5c04fb8a2f56bb8bf577005b454",
     "url": "/burning-airlines-client/index.html"
   },
   {
-    "revision": "681202c62db84871c3c9",
+    "revision": "d6156a1ffa8df02e8821",
     "url": "/burning-airlines-client/static/css/main.e427bdb7.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/burning-airlines-client/static/js/2.2d6bc4ee.chunk.js"
   },
   {
-    "revision": "681202c62db84871c3c9",
-    "url": "/burning-airlines-client/static/js/main.c2d44560.chunk.js"
+    "revision": "d6156a1ffa8df02e8821",
+    "url": "/burning-airlines-client/static/js/main.44a61c44.chunk.js"
   },
   {
     "revision": "515d6a9089d89487faea",
