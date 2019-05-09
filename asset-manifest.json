@@ -1,16 +1,17 @@
 {
   "files": {
-    "main.css": "/burning-airlines-client/static/css/main.e427bdb7.chunk.css",
-    "main.js": "/burning-airlines-client/static/js/main.44a61c44.chunk.js",
-    "main.js.map": "/burning-airlines-client/static/js/main.44a61c44.chunk.js.map",
+    "main.css": "/burning-airlines-client/static/css/main.c16be688.chunk.css",
+    "main.js": "/burning-airlines-client/static/js/main.ad1fbcdf.chunk.js",
+    "main.js.map": "/burning-airlines-client/static/js/main.ad1fbcdf.chunk.js.map",
     "runtime~main.js": "/burning-airlines-client/static/js/runtime~main.7f3b5825.js",
     "runtime~main.js.map": "/burning-airlines-client/static/js/runtime~main.7f3b5825.js.map",
-    "static/js/2.2d6bc4ee.chunk.js": "/burning-airlines-client/static/js/2.2d6bc4ee.chunk.js",
-    "static/js/2.2d6bc4ee.chunk.js.map": "/burning-airlines-client/static/js/2.2d6bc4ee.chunk.js.map",
+    "static/js/2.5f36fb25.chunk.js": "/burning-airlines-client/static/js/2.5f36fb25.chunk.js",
+    "static/js/2.5f36fb25.chunk.js.map": "/burning-airlines-client/static/js/2.5f36fb25.chunk.js.map",
     "index.html": "/burning-airlines-client/index.html",
-    "precache-manifest.50060c865ac46ec38d00fa0f969b650f.js": "/burning-airlines-client/precache-manifest.50060c865ac46ec38d00fa0f969b650f.js",
+    "precache-manifest.803d45e48b082fc75e6dcd5be2c1bb6b.js": "/burning-airlines-client/precache-manifest.803d45e48b082fc75e6dcd5be2c1bb6b.js",
     "service-worker.js": "/burning-airlines-client/service-worker.js",
-    "static/css/main.e427bdb7.chunk.css.map": "/burning-airlines-client/static/css/main.e427bdb7.chunk.css.map",
-    "static/media/index.css": "/burning-airlines-client/static/media/burning-airlines.447fa692.png"
+    "static/css/main.c16be688.chunk.css.map": "/burning-airlines-client/static/css/main.c16be688.chunk.css.map",
+    "static/media/airplane-crash.jpg": "/burning-airlines-client/static/media/airplane-crash.0cc8340d.jpg",
+    "static/media/burning-airlines.gif": "/burning-airlines-client/static/media/burning-airlines.3961dd0a.gif"
   }
 }
