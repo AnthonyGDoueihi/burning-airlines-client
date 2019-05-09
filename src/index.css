@@ -24,8 +24,13 @@ h2 {
 }
 
 .chairButton{
-  /* min-width: 100%; */
-  /* line-height: 50px; */
+  width: 100px;
+  height: 60px;
+}
+
+.btn{
+    border-radius: 1em 1em 0 0 !important;
+    margin: 5px !important;
 }
 
 span {

@@ -20,7 +20,7 @@ class Booking extends Component {
 		}
 
 
-		
+
 		axios.get(SERVER_FLIGHT_URL).then((results) => {
 			results.data.forEach( (flight) => {
 				if ( flight.flight_number == this.state.flight_number ){
@@ -40,7 +40,6 @@ class Booking extends Component {
 				<BootNav user={ this.state.user } />
 				<br/>
 				<h3>{this.state.flight_number}</h3>
-				//TODO pretty up
 				<h5>{this.state.flight.date} \o.o/ {this.state.flight.origin} > {this.state.flight.destination} \o.o/ {this.state.flight.plane_model}</h5>
 
 				<BookingTable user={this.state.user} rows={this.state.flight.rows} flightid={this.state.flight.id} columns={this.state.flight.columns} res={this.state.flight.reservation} />
