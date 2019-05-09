@@ -19,6 +19,8 @@ class Booking extends Component {
 			flight_number: this.props.match.params.flight,
 		}
 
+
+		
 		axios.get(SERVER_FLIGHT_URL).then((results) => {
 			results.data.forEach( (flight) => {
 				if ( flight.flight_number == this.state.flight_number ){

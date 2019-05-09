@@ -60,7 +60,7 @@ class Airplanes extends Component{
           <BootNav user={ this.state.user } checkAdmin={ this.isAdmin }/>
           <br/>
 
-          <h3>You are not an admit. You can't make a plane.</h3>
+          <h3>You are not an admin. You can't make a plane.</h3>
 
         </div>
       )
