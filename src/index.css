@@ -7,6 +7,10 @@ h3.username {
 	color: white;
 }
 
+h2 {
+	color: white;
+}
+
 .loginBackground {
 	background-image: url("burning-airlines.png");
 }
@@ -22,4 +26,9 @@ h3.username {
 .chairButton{
   /* min-width: 100%; */
   /* line-height: 50px; */
+}
+
+span {
+	padding: 5px;
+  word-spacing: 10px
 }

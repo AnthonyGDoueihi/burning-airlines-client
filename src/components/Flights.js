@@ -3,7 +3,7 @@ import axios from 'axios';
 import BootNav from './BootNav';
 import Table from 'react-bootstrap/Table';
 import { Link } from 'react-router-dom';
-
+import '../index.css'
 
 const SERVER_FLIGHT_URL = 'https://dougmaxi-airlines.herokuapp.com/flights.json'
 const SERVER_PLANE_URL = 'https://dougmaxi-airlines.herokuapp.com/airplanes.json'
@@ -37,9 +37,13 @@ class Flights extends Component {
 			<div>
 				<BootNav user={ this.state.user } />
 						<br/>
+						<h3>Create Flights</h3>
+						<br/>
         <FlightForm planes={ this.state.planes } />
 						<br/>
+						<br/>
         <h3>Flights</h3>
+						<br/>
         <FlightTable flights={ this.state.flights } user={ this.state.user } />
       </div>
 		);
@@ -113,26 +117,27 @@ class FlightForm extends Component{
 
 	render(){
 		return(
+
 			<form onSubmit={ this._handleSubmit } >
-				<label>Flight Number</label>
+				<label>&nbsp;Flight Number:&nbsp;</label>
 				<input type="text" onChange={ this._handleFlightNumber } value={ this.state.flight_number } required/>
 
-				<label>Date</label>
+				<label>&nbsp;Date:&nbsp;</label>
 				<input type="date" onChange={ this._handleDate } value={ this.state.date } required/>
 
-				<label>Origin</label>
+				<label>&nbsp;Origin:&nbsp;</label>
 				<input type="text"onChange={ this._handleFrom } value={ this.state.origin } required/>
 
-				<label>Destination</label>
+				<label>&nbsp;Destination:&nbsp;</label>
 				<input type="text"onChange={ this._handleTo } value={ this.state.destination } required/>
 
-				<label>Plane</label>
+				<label>&nbsp;Plane:&nbsp;</label>
 				<select onChange={ this._handlePlane } value={ this.state.plane_model } required>
 					<option key='0' value='0'>Please Select a Plane </option>
 					 { this.props.planes.map( (p) => <option key={ p.id } value={ p.id }>{ p.plane_model }</option> ) }
 				</select>
 
-				<input type="submit" value="Create"/>
+				<input className="submit" type="submit" value="Create"/>
 			</form>
 		)
 	}

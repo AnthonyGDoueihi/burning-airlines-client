@@ -3,14 +3,19 @@ import BootNav from './BootNav'
 import Table from 'react-bootstrap/Table';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import '../index.css'
 
 const SERVER_FLIGHT_URL = 'https://dougmaxi-airlines.herokuapp.com/flights.json'
 
 class Search extends Component {
 
 	constructor(props){
+
+
 		super(props);
-		// this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
+		this._handleOriginChange = this._handleOriginChange.bind(this);
+		this._handleDestinationChange = this._handleDestinationChange.bind(this);
 
 		this.state = {
 			user: this.props.match.params.user,
@@ -19,74 +24,52 @@ class Search extends Component {
 			flights: []
 		};
 
-		const handleSubmit = (e) => {
-			e.preventDefault();
-			console.log("rhdueihdiw");
-			this.setState({
-				origin: this.origin.value,
-				destination: this.destination.value
-			})
-			fetchFlights();
-		}
+	}
 
-		const fetchFlights = () => {
-			axios.get(`${SERVER_FLIGHT_URL}?origin=${this.state.origin}&destination=${this.state.destination}`).then( (results) => {
-				this.setState( { flights: results.data } );
-				console.log(results)
-			});
-		};
+	fetchFlights() {
+		axios.get(`${SERVER_FLIGHT_URL}?origin=${this.state.origin}&destination=${this.state.destination}`).then( (results) => {
+			this.setState( { flights: results.data } );
+			console.log(results)
+		});
+	};
+
+	_handleOriginChange(e) {
+		this.setState({origin: e.target.value});
+	}
+
+	_handleDestinationChange(e) {
+		this.setState({destination: e.target.value});
+	}
+
+	handleSubmit(e) {
+		e.preventDefault();
+		this.fetchFlights();
 	}
 
 	render () {
 		return (
 			<div>
 				<BootNav user={ this.state.user } />
-			<br/>
-			<br/>
+					<br/>
         <h3>Flight Search Results</h3>
-
+					<br/>
 				<form onSubmit={this.handleSubmit}>
-					<label>Origin
-						<input ref={origin => this.origin = origin} />
+					<label>&nbsp;Origin:&nbsp;&nbsp;
+						<input onInput={this._handleOriginChange} />
 					</label>
-					<label>Destination
-						<input ref={destination => this.destination = destination} />
+					<label>&nbsp;Destination:&nbsp;&nbsp;
+						<input onInput={this._handleDestinationChange}/>
 					</label>
 
 					<input type="submit" value="Search"/>
-					//TODO make this search Flights
-				</form>
 
+				</form>
+				<br/>
         <ResultsTable flights={ this.state.flights } />
 			</div>
 		);
 	}
 };
-
-// class SearchForm extends Component{
-//
-//
-// 	render(){
-// 		return(
-// 			<form >
-// 				<label>Origin</label>
-// 				<input
-// 					ref={input => this.origin = input}
-// 					onChange={this.handleInputChange}
-// 				/>
-// 				<label>Destination</label>
-// 				<input
-// 					ref={input => this.destination = input}
-// 					onChange={this.handleInputChange}
-// 				/>
-//
-// 				<input type="submit" value="Search"/>
-// 				//TODO make this search Flights
-// 			</form>
-// 		)
-// 	}
-// }
-
 
 class ResultsTable extends Component{
 	render(){
@@ -118,7 +101,5 @@ class ResultsTable extends Component{
 		)
 	}
 }
-
-
 
 export default Search;

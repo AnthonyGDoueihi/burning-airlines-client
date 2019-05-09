@@ -99,11 +99,13 @@ class PlaneForm extends Component{
   render(){
     return(
       <form onSubmit={ this._handleSubmit }>
-        <label>Plane Model</label>
+				<h3>Add Plane To Database</h3>
+				<br/>
+        <label>&nbsp;Plane Model:&nbsp;&nbsp;</label>
         <input type="text" onChange={ this._handleModel } value={ this.state.plane_model } required/>
-        <label>Rows</label>
+        <label>&nbsp;Rows:&nbsp;&nbsp;</label>
         <input type="number" min="1" onChange={ this._handleRow } value={ this.state.rows } required/>
-        <label>Columns</label>
+        <label>&nbsp;Columns:&nbsp;&nbsp;</label>
         <input type="number" min="1" max="8" onChange={ this._handleColumn } value={ this.state.columns } required/>
         <input type="submit" value="Create"/>
       </form>
@@ -140,6 +142,7 @@ class SeatsTable extends Component{
   render(){
     return(
       <div>
+			<br/>
         <Container>
           { this.createGrid() }
         </Container>
