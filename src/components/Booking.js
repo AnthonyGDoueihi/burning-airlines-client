@@ -45,7 +45,7 @@ class Booking extends Component {
 				<BootNav user={ this.state.user } />
 				<br/>
 				<h3>{this.state.flight_number}</h3>
-				<h5>{this.state.flight.date} \o.o/ {this.state.flight.origin} > {this.state.flight.destination} \o.o/ {this.state.flight.plane_model}</h5>
+				<h5>{this.state.flight.date} &nbsp;&nbsp;&nbsp; {this.state.flight.origin} > {this.state.flight.destination} &nbsp;&nbsp;&nbsp; {this.state.flight.plane_model}</h5>
 
 				<BookingTable user={this.state.user} rows={this.state.flight.rows} flightid={this.state.flight.id} columns={this.state.flight.columns} res={this.state.flight.reservation} counter={this.state.counter}/>
 			</div>
