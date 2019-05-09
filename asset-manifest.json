@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/burning-airlines-client/static/css/main.eaae61b6.chunk.css",
+    "main.js": "/burning-airlines-client/static/js/main.292deaae.chunk.js",
+    "main.js.map": "/burning-airlines-client/static/js/main.292deaae.chunk.js.map",
+    "runtime~main.js": "/burning-airlines-client/static/js/runtime~main.7f3b5825.js",
+    "runtime~main.js.map": "/burning-airlines-client/static/js/runtime~main.7f3b5825.js.map",
+    "static/js/2.b72f7f32.chunk.js": "/burning-airlines-client/static/js/2.b72f7f32.chunk.js",
+    "static/js/2.b72f7f32.chunk.js.map": "/burning-airlines-client/static/js/2.b72f7f32.chunk.js.map",
+    "index.html": "/burning-airlines-client/index.html",
+    "precache-manifest.2f8e8c9d930241094a071d60905a29f8.js": "/burning-airlines-client/precache-manifest.2f8e8c9d930241094a071d60905a29f8.js",
+    "service-worker.js": "/burning-airlines-client/service-worker.js",
+    "static/css/main.eaae61b6.chunk.css.map": "/burning-airlines-client/static/css/main.eaae61b6.chunk.css.map",
+    "static/media/index.css": "/burning-airlines-client/static/media/burning-airlines.447fa692.png"
+  }
+}
